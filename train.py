@@ -16,8 +16,8 @@ from torch.utils.tensorboard import SummaryWriter
 from utils.dataset import BasicDataset
 from torch.utils.data import DataLoader, random_split
 
-dir_img = 'data/imgs/'
-dir_mask = 'data/masks/'
+dir_img = 'dataset/imgs/'
+dir_mask = 'dataset/masks/'
 dir_checkpoint = 'checkpoints/'
 
 
@@ -137,7 +137,7 @@ def get_args():
     parser.add_argument('-s', '--scale', dest='scale', type=float, default=0.5,
                         help='Downscaling factor of the images')
     parser.add_argument('-v', '--validation', dest='val', type=float, default=10.0,
-                        help='Percent of the data that is used as validation (0-100)')
+                        help='Percent of the dataset that is used as validation (0-100)')
 
     return parser.parse_args()
 
@@ -148,7 +148,7 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f'Using device {device}')
 
-    # Change here to adapt to your data
+    # Change here to adapt to your dataset
     # n_channels=3 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
     #   - For 1 class and background, use n_classes=1

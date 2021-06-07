@@ -25,7 +25,7 @@ def rle_encode(mask_image):
 
 def submit(net):
     """Used for Kaggle submission: predicts and encode all test images"""
-    dir = 'data/test/'
+    dir = 'dataset/test/'
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     N = len(list(os.listdir(dir)))
     with open('SUBMISSION.csv', 'a') as f:
